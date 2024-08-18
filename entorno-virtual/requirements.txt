@@ -1,0 +1,2 @@
+# phyton version 
+django==5.1

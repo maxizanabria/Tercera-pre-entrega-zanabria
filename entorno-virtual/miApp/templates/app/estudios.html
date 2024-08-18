@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto python </title>
+</head>
+<body>
+    
+    {% extends "app/padre.html" %}  {% load static %}
+
+{% block title %}Página de Inicio{% endblock %}
+
+{% block contenidoQueCambia %}
+
+    <h1>Este es el título del Inicio</h1>
+    <p>Se ha heredado todo desde la plantilla padre</p>
+    <h3>En el hijo, inicio.html, casi no hay nada :)</h3>
+{% endblock %}
+    
+
+    
+</body>
+</html>
