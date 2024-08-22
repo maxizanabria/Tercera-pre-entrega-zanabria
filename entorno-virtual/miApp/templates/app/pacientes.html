@@ -14,10 +14,21 @@
     
     {% block contenidoQueCambia %}
     
-        <h1>ACA IRA FORMULARIO DE PACIENTES PARA INGRESAR A LA BASE DE DATOS</h1>
-        <p>Se ha heredado todo desde la plantilla padre</p>
+    <h2>Formulario de Registro</h2>
+    <form action="#" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br><br>
+
+        <input class="btn"type="submit" value="Enviar">
+    </form>
+    <br>
+    <br>
         
     {% endblock %}
+
         
     
 </body>

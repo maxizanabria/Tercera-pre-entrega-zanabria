@@ -12,8 +12,33 @@
     
     {% block contenidoQueCambia %}
     
-        <h1>aca ira un formulario  de nombre apellido asunto y detalle de consultas</h1> 
-        <p>Se ha heredado todo desde la plantilla padre</p>
+    <h2>Formulario de Consulta</h2>
+    <form action="#" method="post" onsubmit="return validarFormulario()">
+        <label for="nombre">Nombre y Apellido: </label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="asunto">Asunto de la Consulta:</label>
+        <input type="text" id="asunto" name="asunto" required><br><br>
+
+        <label for="detalle">Detalle de la Consulta (máximo 400 caracteres):</label><br>
+        <textarea id="detalle" name="detalle" maxlength="400" required></textarea><br><br>
+
+        <input class="btn "type="submit" value="Enviar Consulta">
+    </form>
+    <script>
+        function validarFormulario() {
+            var detalle = document.getElementById("detalle").value;
+            if (detalle.length > 400) {
+                alert("El detalle de la consulta no puede exceder los 400 caracteres.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    <br>
+    <br>
+
     {% endblock %}
         
     

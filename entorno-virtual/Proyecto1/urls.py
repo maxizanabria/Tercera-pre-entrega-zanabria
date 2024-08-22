@@ -24,4 +24,5 @@ urlpatterns = [
     path('miApp/', include('miApp.urls')),
     path('plantilla/', probando_template),
     path('agregar_pacientes/<nom>/<ap>/', agregar_Pacientes ),
+    
 ]

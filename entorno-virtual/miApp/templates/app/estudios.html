@@ -13,10 +13,36 @@
 
 {% block contenidoQueCambia %}
 
-    <h1>aca se pedira turno con ALGUNA ESPECIALIDAD CLINICA</h1>
+<h2>Formulario de Turno Clínico</h2>
+    <form action="#" method="post" onsubmit="return validarFormulario()">
+        <label for="especialidad">Seleccione una especialidad clínica:</label>
+        <select id="especialidad" name="especialidad" required>
+            <option value="">--Seleccione una opción--</option>
+            <option value="cardiologia">Cardiología</option>
+            <option value="dermatologia">Dermatología</option>
+            <option value="pediatria">Pediatría</option>
+            <option value="ginecologia">Ginecología</option>
+        </select><br><br>
+
+        <label for="fecha">Seleccione la fecha del turno:</label>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+
+        <input class="btn" type="submit" value="Solicitar Turno">
+    </form>
+
+    <script>
+        function validarFormulario() {
+            var especialidad = document.getElementById("especialidad").value;
+            if (especialidad === "") {
+                alert("Debe seleccionar una especialidad clínica.");
+                return false;
+            }
+            return true;
+        }
+    </script>
     
-    <p>Se ha heredado todo desde la plantilla padre </p>
-    
+    <br>
+    <br>
 {% endblock %}
     
 
