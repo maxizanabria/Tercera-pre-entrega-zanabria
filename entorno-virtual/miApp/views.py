@@ -22,7 +22,7 @@ def estudios(req):
 def pacientes_Formulario(req):
     if req.method == 'POST':
 
-            pacientes =  pacientesFormulario(nombre=req.POST['curso'],apellido=req.POST['apellido'])
+            pacientes =  pacientesFormulario(nombre=req.POST['pacientes'],apellido=req.POST['apellido'])
 
             pacientes.save()
 
