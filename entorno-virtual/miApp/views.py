@@ -21,11 +21,17 @@ def estudios(req):
 
 def pacientes_Formulario(req):
     if req.method == 'POST':
-
-            pacientes =  pacientesFormulario(nombre=req.POST['pacientes'],apellido=req.POST['apellido'])
-
+        # Asegúrate de que los nombres de los campos coincidan con los del formulario
+        nombre = req.POST['nombre']
+        apellido = req.POST['apellido']
+        email = req.POST['email']
+        
+        if nombre and apellido:  # Verifica que los campos no estén vacíos
+            pacientes = Pacientes(nombre=nombre, apellido=apellido, email=email)
             pacientes.save()
-
             return render(req, "app/inicio.html")
+        else:
+            # Puedes agregar un mensaje de error o manejar este caso de alguna forma
+            pass
 
-    return render(req,"app/pacientesFormulario.html")
+    return render(req, "app/pacientesFormulario.html")

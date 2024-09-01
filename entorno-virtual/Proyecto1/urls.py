@@ -18,11 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from Proyecto1.views import probando_template, agregar_Pacientes
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('miApp/', include('miApp.urls')),
     path('plantilla/', probando_template),
     path('agregar_pacientes/<nom>/<ap>/', agregar_Pacientes ),
+    
     
 ]

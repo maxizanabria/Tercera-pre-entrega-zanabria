@@ -3,10 +3,11 @@ from django.db import models
 class Pacientes(models.Model): 
     nombre = models.CharField(max_length=40)
     apellido = models.CharField(max_length=40)
+    email = models.EmailField(null=True, blank=True)
 
 class Registro(models.Model):
     nombre = models.CharField(max_length=30)
-    mail = models.EmailField()
+    email = models.EmailField()
     contrasena = models.CharField(max_length=30)
     
 class Consultas(models.Model):
