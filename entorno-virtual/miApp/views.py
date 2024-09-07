@@ -35,3 +35,41 @@ def pacientes_Formulario(req):
             pass
 
     return render(req, "app/pacientesFormulario.html")
+
+def pacientes_Form_2(request):
+
+    if request.method == "POST":
+
+            miFormulario = pacientesFormulario(request.POST) # Aqui me llega la informacion del html
+            print(miFormulario)
+
+            if miFormulario.is_valid:
+                informacion = miFormulario.cleaned_data
+                pacientes = Pacientes(nombre=informacion["pacientes"], apellido=informacion["apellido"], email = informacion.get("email", None))
+                
+                pacientes.save()
+                return render(request, "app/inicio.html")
+    else:
+            miFormulario = pacientesFormulario()
+
+    return render(request, "app/pacientes-Form-2.html", {"miFormulario": miFormulario})
+
+
+def busquedaPacientes(request):
+    return render(request, "app/busquedaPacientes.html")
+
+def buscar(request):
+
+    if request.GET["apellido"]:
+
+        apellido = request.GET['apellido']
+
+        pacientes = pacientes.objects.filter(apellido__icontains=apellido)
+
+        return render(request, "App/resultadoBusqueda.html", {"pacientes": pacientes, "apellido": apellido})
+
+    else:
+
+        respuesta = "No enviaste datos"
+
+    return HttpResponse(respuesta)
