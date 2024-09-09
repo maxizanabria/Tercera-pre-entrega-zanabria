@@ -10,5 +10,6 @@ urlpatterns = [
     path('pacientes-Form-2/', views.pacientes_Form_2, name='pacientesForm2'),
     path('busquedaPacientes/', views.busquedaPacientes, name='BusquedaPacientes'),
     path('buscar/', views.buscar), 
-    
+    path('leerPacientes/', views.leerPacientes, name= 'leerPacientes'), 
+    path('eliminarPacientes/<pacientes_nombre>/', views.eliminarPacientes, name="EliminarPacientes"),
 ]

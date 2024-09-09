@@ -6,17 +6,17 @@ class Pacientes(models.Model):
     email = models.EmailField(null=True, blank=True)
     
     def __str__(self):
-        return f"{self.nombre} - {self.apellido}"
+        return f"Nombre: {self.nombre} - Apellido: {self.apellido} - Email: {self.email}"
     
     
 
 class Registro(models.Model):
     nombre = models.CharField(max_length=30)
-    email = models.EmailField()
+    edad = models.IntegerField()
     contrasena = models.CharField(max_length=30)
     
     def __str__(self):
-        return f"{self.nombre} - {self.contrasena}"
+        return f"Nombre: {self.nombre} - Contrasena: {self.contrasena} - Edad: {self.edad}"
     
 class Consultas(models.Model):
     nombre = models.CharField(max_length=30)
@@ -25,14 +25,14 @@ class Consultas(models.Model):
     detalle = models.CharField(max_length=300)
     
     def __str__(self):
-        return f"{self.nombre} - {self.detalle}"
+        return f"Nombre: {self.nombre} - Apellido: {self.apellido} - Email: {self.detalle} - Asunto : {self.asunto}"
 
 class Estudios(models.Model):
     nombre = models.CharField(max_length=30)   
     fecha_de_entrega = models.DateField(default=False)
-    entregado = models.BooleanField(default=False)       
+    reservado = models.BooleanField(default=False)       
     
     
     def __str__(self):
-        texto_entregado = "Entregado" if self.entregado else "No entregado"
-        return f"Entregable: {self.nombre} | Fecha: {self.fecha_de_entrega} | Estado: {texto_entregado}"
+        texto_reservado = "Reservado" if self.reservado else "No entregado"
+        return f"Reservado para: {self.nombre} | Fecha: {self.fecha_de_entrega} | Estado: {texto_reservado}"

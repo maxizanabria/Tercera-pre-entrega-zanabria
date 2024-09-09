@@ -73,3 +73,51 @@ def buscar(request):
         respuesta = "No enviaste datos"
 
     return HttpResponse(respuesta)
+
+
+def leerPacientes(request):
+
+    pacientes = Pacientes.objects.all() # TRAE PACIENTES
+
+    contexto= {"pacientes":pacientes} 
+
+    return render(request, "App/leerPacientes.html",contexto)
+
+def eliminarPacientes(request, pacientes_nombre):
+
+    pacientes = pacientes.objects.get(nombre=pacientes_nombre)
+    pacientes.delete()
+
+    # RETORNA AL MENU 
+    pacientes = pacientes.objects.all()  # trae todos los pacientes 
+
+    contexto = {"pacientes": pacientes}
+
+    return render(request, "AppCoder/leerPacientes.html", contexto)
+
+
+def pacientesFormulario(request):  
+
+    print("Entrando en la vista pacientesFormulario")  
+
+    if request.method == 'POST':
+        print("Solicitud POST recibida")
+
+        miFormulario = pacientesFormulario(request.POST) 
+
+        if miFormulario.is_valid():
+            print("Formulario válido")  
+
+            informacion = miFormulario.cleaned_data
+            pacientes = Pacientes(nombre=informacion['nombre'], apellido=informacion['apellido'], email=informacion['email'], )
+            pacientes.save()
+
+            return render(request, "App/inicio.html") 
+        else:
+            print("Formulario no válido")  
+
+    else:
+        print("Solicitud GET recibida")  
+        miFormulario = pacientesFormulario()
+
+    return render(request, "AppCoder/pacientesFormulario.html", {"miFormulario": miFormulario})

@@ -1,15 +1,34 @@
-Este proyecto de python me gustaria usarlo en un futuro como parte de mi portafolio.
-La idea es hacer una pagina de turnos donde uno pueda hacer las siguientes funciones:
+Proyecto Final de curso de python.
+Se trata de un blog web que simula una central de turnos.
 
-* Navegar por diferentes paginas de HTML con sus herencias correspondientes.
-* Registrarse como paciente.
-* Ingresar como paciente. 
-* Validar el usuario registrado. 
-* Registrar y devolver datos de pacientes.
-* Registrar turno
-* Si los datos no son correctos mostrar un pront!
-* Mostrar turno
-* Guardar consultas con su respectiva descripcion catalogando la individualidad de la misma con nombre y apellido.
+Requisitos
+
+Python 3.11.4
+django==5.1
+
+Uso
+
+Corre el servidor:
+
+python manage.py runserver
+
+Abre el navegador y ve a http://localhost:8000/inicio.
+
+Se crea una aplicacion para que el usuario se registre, inicie sesion y tambien pueda cerrar sesion . 
+Ademas abra un registro de pacientes para saber la disponibilidad de turnos y el tiempo de demora de los mismos.
+A su vez, tambien se podra hacer consultas especificas a la PREPAGA por "x" tema. 
+Se agrega una seccion de "acerca de mi" para contar un poco como vengo desarrollandome en el munndo del desarrolo web.
 
 
+Funcionalidades
+Lista breve de las principales características del proyecto. Por ejemplo:
 
+Autenticación de usuarios
+Creación de usuarios
+Vista de perfil 
+Página 'Acerca de mí'
+
+
+Autor
+Maximiliano Nahuel Zanabria , maxi.zanabria@hotmail.com - 
+https://github.com/maxizanabria/Tercera-pre-entrega-zanabria.git
