@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Proyecto1.views import probando_template, agregar_Pacientes
+from django.shortcuts import redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', lambda request: redirect('/miApp/inicio', permanent=False)),
     path('miApp/', include('miApp.urls')),
     path('plantilla/', probando_template),
     path('agregar_pacientes/<nom>/<ap>/', agregar_Pacientes ),
